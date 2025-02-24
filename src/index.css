@@ -1,0 +1,75 @@
+@import url('./assets/fonts/font.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: Pretendard, sans-serif;
+}
+
+/* 모든 요소에서 스크롤바 숨기기 */
+* {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* 웹킷 기반 브라우저(Chrome, Safari 등)에서 스크롤바 숨기기 */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background: #262626;
+}
+
+.swiper-pagination-bullets {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 20px;
+    width: fit-content;
+    z-index: 5;
+}
+
+.swiper-pagination-bullets .swiper-pagination-bullet {
+    background-color: #a070f8;
+    width: 8px;
+    height: 8px;
+    opacity: 0.3;
+}
+
+.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.banner-swiper .swiper-slide {
+    width: auto !important;
+}
+
+@layer utilities {
+    .gradient-border::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        padding: 2px; /* 테두리 두께 */
+        background: linear-gradient(
+            90deg,
+            #b691fa,
+            #732cf5
+        ); /* 그라디언트 색상 */
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+}
